@@ -1,7 +1,12 @@
 # c2vector
 Vector implementation in C2. Based on vector implementation
 in C by Edd Mann
-
+After downloading or cloning c2vector, it is advised to test
+it with
+```
+c2c --test
+```
+in the the root directory of the c2vector repository
 ## API
 ```
 public type vector struct
