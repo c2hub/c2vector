@@ -1,3 +1,4 @@
 target test
+	$warnings no-unused
 	c2vector/c2vector.c2
 end
