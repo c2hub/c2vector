@@ -1,0 +1,3 @@
+target test
+	c2vector/c2vector.c2
+end
