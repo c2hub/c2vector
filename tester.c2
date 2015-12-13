@@ -1,0 +1,35 @@
+module tester;
+
+import stdio local;
+import c2vector local;
+
+public func int32 main()
+{
+    int32 i;
+
+    vector v;
+    init(&v);
+
+    add(&v, "Bonjour");
+    add(&v, "tout");
+    add(&v, "le");
+    add(&v, "monde");
+
+    for (i = 0; i < total(&v); i++)
+        printf("%s ", (char *) get(&v, i));
+    printf("\n");
+
+    delete(&v, 3);
+    delete(&v, 2);
+    delete(&v, 1);
+
+    set(&v, 0, "Hello");
+    add(&v, "World");
+
+    for (i = 0; i < total(&v); i++)
+        printf("%s ", (char *) get(&v, i));
+    printf("\n");
+
+    c2vector.free(&v);
+    return 0;
+}

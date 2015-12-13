@@ -1,4 +1,6 @@
 target test
 	$warnings no-unused
+	$generate-c
 	c2vector/c2vector.c2
+	tester.c2
 end
