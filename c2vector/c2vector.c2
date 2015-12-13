@@ -61,7 +61,7 @@ public func void delete(vector* v, int32 index)
 
     v.items[index] = nil;
 
-    for (int32 i = 0; i < v.total - 1; i++) 
+    for (int32 i = index; i < v.total - 1; i++) 
 	{
         v.items[i] = v.items[i + 1];
         v.items[i + 1] = nil;
