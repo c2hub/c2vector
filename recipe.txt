@@ -1,4 +1,4 @@
-target test
+executable test
 	$warnings no-unused
 	$generate-c
 	c2vector/c2vector.c2

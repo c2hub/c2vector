@@ -10,10 +10,11 @@ public func int32 main()
     vector v;
     init(&v);
 
-    add(&v, "Bonjour");
-    add(&v, "tout");
-    add(&v, "le");
-    add(&v, "monde");
+    add(&v, "Hello");
+    add(&v, "darkness,");
+    add(&v, "my");
+    add(&v, "old");
+    add(&v, "friend");
 
     for (i = 0; i < total(&v); i++)
         printf("%s ", (char *) get(&v, i));
@@ -24,7 +25,7 @@ public func int32 main()
     delete(&v, 1);
 
     set(&v, 0, "Hello");
-    add(&v, "World");
+    add(&v, "World,");
 
     for (i = 0; i < total(&v); i++)
         printf("%s ", (char *) get(&v, i));
