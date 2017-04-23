@@ -7,7 +7,7 @@ public func int32 main()
 {
     int32 i;
 
-    vector v;
+    Vector v;
     init(&v);
 
     add(&v, "Bonjour");
