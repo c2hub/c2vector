@@ -8,28 +8,28 @@ public func int32 main()
     int32 i;
 
     Vector v;
-    init(&v);
+    v.init();
 
-    add(&v, "Bonjour");
-    add(&v, "tout");
-    add(&v, "le");
-    add(&v, "monde");
+    v.add("Bonjour");
+    v.add("tout");
+    v.add("le");
+    v.add("monde");
 
-    for (i = 0; i < total(&v); i++)
-        printf("%s ", (char *) get(&v, i));
+    for (i = 0; i < v.total(); i++)
+        printf("%s ", (char *) v.get(i));
     printf("\n");
 
-    delete(&v, 3);
-    delete(&v, 2);
-    delete(&v, 1);
+    v.delete(3);
+    v.delete(2);
+    v.delete(1);
 
-    set(&v, 0, "Hello");
-    add(&v, "World");
+    v.set(0, "Hello");
+    v.add("World");
 
-    for (i = 0; i < total(&v); i++)
-        printf("%s ", (char *) get(&v, i));
+    for (i = 0; i < v.total(); i++)
+        printf("%s ", (char *) v.get(i));
     printf("\n");
 
-    c2vector.free(&v);
+    v.free();
     return 0;
 }

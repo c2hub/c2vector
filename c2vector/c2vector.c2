@@ -8,72 +8,72 @@ import stdio local;
 public type Vector struct
 {
     void** items;
-    int32 capacity;
-    int32 total;
+    uint32 capacity;
+    int32 total_;
 }
 
-public func void init(Vector* v)
+public func void vector_init(Vector* v)
 {
     v.capacity = 4;
-    v.total = 0;
+    v.total_ = 0;
     v.items = malloc(sizeof(void *) * v.capacity);
 }
 
-public func int32 total(Vector* v)
+public func int32 vector_total(Vector* v)
 {
-    return v.total;
+    return v.total_;
 }
 
-func void resize(Vector* v, int32 capacity)
+func void resize(Vector* v, uint32 capacity)
 {
     void** items = realloc(v.items, sizeof(void *) * capacity);
-    if (items != nil) 
+    if (items != nil)
 	{
         v.items = items;
         v.capacity = capacity;
     }
 }
 
-public func void add(Vector* v, void* item)
+public func void vector_add(Vector* v, void* item)
 {
-    if (v.capacity == v.total)
+    if (v.capacity == v.total_)
         resize(v, v.capacity * 2);
-    v.items[v.total++] = item;
+    v.items[v.total_++] = item;
 }
 
-public func void set(Vector* v, int32 index, void* item)
+public func void vector_set(Vector* v, int32 index, void* item)
 {
-    if (index >= 0 && index < v.total)
+    if (index >= 0 && index < v.total_)
         v.items[index] = item;
 }
 
-public func void* get(Vector* v, int32 index)
+public func void* vector_get(Vector* v, int32 index)
 {
-    if (index >= 0 && index < v.total)
+    if (index >= 0 && index < v.total_)
         return v.items[index];
     return nil;
 }
 
-public func void delete(Vector* v, int32 index)
+public func void vector_delete(Vector* v, int32 index)
 {
-    if (index < 0 || index >= v.total)
+    if (index < 0 || index >= v.total_)
         return;
 
     v.items[index] = nil;
 
-    for (int32 i = index; i < v.total - 1; i++) 
+    for (int32 i = index; i < v.total_ - 1; i++)
 	{
         v.items[i] = v.items[i + 1];
         v.items[i + 1] = nil;
     }
 
-    v.total--;
+    v.total_--;
 
-    if (v.total > 0 && v.total == v.capacity / 4)
+    if (v.total_ > 0 && v.total_ == v.capacity / 4)
         resize(v, v.capacity / 2);
 }
 
-public func void free(Vector *v)
+public func void vector_free(Vector *v)
 {
     stdlib.free(v.items);
 }
