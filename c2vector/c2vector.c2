@@ -12,14 +12,14 @@ public type Vector struct
     int32 total_;
 }
 
-public func void vector_init(Vector* v)
+public func void Vector.init(Vector* v)
 {
     v.capacity = 4;
     v.total_ = 0;
     v.items = malloc(sizeof(void *) * v.capacity);
 }
 
-public func int32 vector_total(Vector* v)
+public func int32 Vector.total(Vector* v)
 {
     return v.total_;
 }
@@ -34,27 +34,27 @@ func void resize(Vector* v, uint32 capacity)
     }
 }
 
-public func void vector_add(Vector* v, void* item)
+public func void Vector.add(Vector* v, void* item)
 {
     if (v.capacity == v.total_)
         resize(v, v.capacity * 2);
     v.items[v.total_++] = item;
 }
 
-public func void vector_set(Vector* v, int32 index, void* item)
+public func void Vector.set(Vector* v, int32 index, void* item)
 {
     if (index >= 0 && index < v.total_)
         v.items[index] = item;
 }
 
-public func void* vector_get(Vector* v, int32 index)
+public func void* Vector.get(Vector* v, int32 index)
 {
     if (index >= 0 && index < v.total_)
         return v.items[index];
     return nil;
 }
 
-public func void vector_delete(Vector* v, int32 index)
+public func void Vector.delete(Vector* v, int32 index)
 {
     if (index < 0 || index >= v.total_)
         return;
@@ -73,7 +73,7 @@ public func void vector_delete(Vector* v, int32 index)
         resize(v, v.capacity / 2);
 }
 
-public func void vector_free(Vector *v)
+public func void Vector.free(Vector *v)
 {
     stdlib.free(v.items);
 }
